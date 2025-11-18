@@ -1,0 +1,240 @@
+<div id="custom-toc-container" class="toc-container">
+  <button id="toc-toggle-btn" class="toc-btn">☰ Table of Contents</button>
+  <div id="toc-list" class="toc-list hidden">
+    <!-- Links will be injected here -->
+  </div>
+</div>
+
+<style>
+/* Styles for the TOC */
+.toc-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.toc-btn {
+  background: #191970 !important; /* Midnight Blue */
+  color: white !important;
+  border: 1px solid #191970 !important;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+  text-shadow: none !important; /* Fix overlaying text issue */
+  display: block !important; /* Ensure block display to avoid inline weirdness */
+}
+
+.toc-btn:hover {
+  background: #000080 !important; /* Darker Navy on hover */
+}
+
+.toc-list {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  max-height: 60vh; /* Scrollable, max height relative to viewport */
+  overflow-y: auto;
+  width: 300px;
+  display: none; /* Hidden by default */
+  padding: 10px 0;
+  text-align: left;
+}
+
+.toc-list.visible {
+  display: block;
+}
+
+.toc-item {
+  display: block;
+  padding: 8px 15px;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  line-height: 1.4;
+}
+
+.toc-item:last-child {
+  border-bottom: none;
+}
+
+.toc-item:hover {
+  background-color: #f0f4f8;
+  color: #003366;
+}
+
+/* Scrollbar styling */
+.toc-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.toc-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.toc-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.toc-list::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Wait a moment for ioslides to generate the DOM structure if it's not ready immediately
+  setTimeout(initTOC, 500);
+
+  function navigateToSlide(slideNumber, hashValue) {
+    if (!slideNumber) {
+      return;
+    }
+
+    const targetHash = hashValue || '#' + slideNumber;
+
+    if (window.location.hash !== targetHash) {
+      window.location.hash = targetHash;
+    } else if (window.history && window.history.replaceState && location.protocol !== 'file:') {
+      window.history.replaceState(slideNumber - 1, 'Slide ' + slideNumber, targetHash);
+    }
+
+    let attempts = 0;
+    const maxAttempts = 25;
+
+    const tryLoad = function() {
+      if (window.slidedeck && typeof window.slidedeck.loadSlide === 'function') {
+        window.slidedeck.loadSlide(slideNumber);
+      } else if (attempts < maxAttempts) {
+        attempts += 1;
+        setTimeout(tryLoad, 200);
+      } else {
+        console.warn('TOC: Unable to navigate, SlideDeck not ready for slide', slideNumber);
+      }
+    };
+
+    tryLoad();
+  }
+
+  function initTOC() {
+    const tocList = document.getElementById('toc-list');
+    const toggleBtn = document.getElementById('toc-toggle-btn');
+    // ioslides puts slides in <slides> tag
+    const slides = document.querySelectorAll('slides > slide');
+    
+    if (!tocList || !toggleBtn || slides.length === 0) {
+      console.log('TOC: DOM elements not found yet, retrying...');
+      // If elements aren't found, it might be too early (though DOMContentLoaded should work)
+      return;
+    }
+
+    // Toggle TOC visibility
+    toggleBtn.addEventListener('click', function(e) {
+      e.stopPropagation(); // Prevent document click from closing immediately
+      tocList.classList.toggle('visible');
+    });
+
+    // Close TOC when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!document.getElementById('custom-toc-container').contains(event.target)) {
+        tocList.classList.remove('visible');
+      }
+    });
+
+    // Generate TOC items
+    let addedCount = 0;
+    slides.forEach((slide, index) => {
+      // Skip backdrop or hidden slides if necessary, though we usually want to navigate to them
+      if (slide.classList.contains('backdrop')) return;
+
+      // Find title
+      let title = "";
+      const hgroup = slide.querySelector('hgroup');
+      
+      if (hgroup) {
+        // Try h2 first (slide title), then h1 (section title)
+        const h2 = hgroup.querySelector('h2');
+        const h1 = hgroup.querySelector('h1');
+        
+        if (h2 && h2.innerText.trim()) {
+          title = h2.innerText.trim();
+        } else if (h1 && h1.innerText.trim()) {
+          title = h1.innerText.trim();
+        }
+      }
+
+      // If no title found in hgroup, try to find first h2 or h1 in article
+      if (!title) {
+         const article = slide.querySelector('article');
+         if (article) {
+             const artH2 = article.querySelector('h2');
+             if (artH2 && artH2.innerText.trim()) {
+                 title = artH2.innerText.trim();
+             }
+         }
+      }
+      
+      // If still no title, fallback or skip? 
+      // Let's use a placeholder if it's the title slide
+      if (slide.classList.contains('title-slide') && !title) {
+          title = "Title Slide";
+      }
+      
+      // If no title, maybe skip it to keep TOC clean, or use "Slide X"
+      if (!title) {
+        // Skip untitled slides to avoid clutter, or uncomment below to show them
+        // title = "Slide " + (index + 1);
+        return;
+      }
+      
+      // Create a link element for better native navigation
+      const link = document.createElement('a');
+      link.className = 'toc-item';
+      link.innerText = title;
+      // Prevent opening in new tab
+      link.target = "_self"; 
+
+      const slideNumber = parseInt(slide.dataset && slide.dataset.slideNum ? slide.dataset.slideNum : (index + 1), 10);
+      const targetHash = "#" + slideNumber;
+      link.href = targetHash;
+      
+      // Styling logic based on section vs slide
+      if (hgroup && hgroup.querySelector('h1') && !hgroup.querySelector('h2')) {
+          link.style.fontWeight = "bold";
+          link.style.backgroundColor = "#f9f9f9";
+          link.style.paddingLeft = "10px";
+      } else {
+          link.style.paddingLeft = "20px";
+      }
+
+      // Handle click to close menu
+      link.addEventListener('click', function(e) {
+         e.preventDefault();
+         e.stopPropagation();
+
+         navigateToSlide(slideNumber, targetHash);
+
+         tocList.classList.remove('visible'); // Close menu
+      });
+
+      tocList.appendChild(link);
+      addedCount++;
+    });
+    
+    console.log(`TOC: Added ${addedCount} slides.`);
+  }
+});
+</script>
+
