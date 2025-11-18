@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
   - Digital advisory tools for farmers
   - Health assistants
 
-- **Problem**: While some studies show effectiveness (e.g., Henkel et al., 2024), others show AI applications exhibit unexpected and unwanted behavior that can be harmful to users (e.g., Bastani et al., 2024)
+- **Problem**: While some studies show effectiveness (e.g., [Henkel et al., 2024](https://arxiv.org/abs/2402.09809)), others show AI applications exhibit unexpected and unwanted behavior that can be harmful to users (e.g., [Bastani et al., 2024](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4895486))
 
 - **Gap**: While there is broad consensus on the importance of evaluating GenAI in the development sector, there has been little agreement on what this actually means
 
@@ -64,6 +64,12 @@ This playbook organizes evaluation around four levels:
 
 4. **Level 4 – Impact evaluation**: Does access to the product improve development outcomes?
 
+## {.hidden}
+
+```{r, echo=FALSE, out.height="100px", fig.align="center"}
+knitr::include_graphics("images/ai-eval-framework.jpg")
+```
+
 ## Continuous Evaluation: The Central Element
 
 - Unlike earlier rule-based digital tools, GenAI's unique sensitivity to the underlying model, architecture, data, and prompts demands new evaluation methods
@@ -89,13 +95,13 @@ This playbook organizes evaluation around four levels:
 
 ## Framework Origins
 
-- Lessons from **AI for Global Development (AI4GD) accelerator**
-  - Led by The Agency Fund (TAF)
-  - Collaboration with OpenAI and Center for Global Development (CGD)
+- Lessons from **[AI for Global Development (AI4GD) accelerator](https://agencyfund.notion.site/ai-for-global-development)**
+  - Led by [The Agency Fund](https://www.agency.fund/) (TAF)
+  - Collaboration with [OpenAI](https://openai.com/) and [Center for Global Development](https://www.cgdev.org/) (CGD)
   - $5 million investment supporting 8 non-profit organizations
   - Focus: Education, health, and agricultural livelihoods
 
-- Incorporates lessons from accelerator participants and other leading organizations
+- Incorporates lessons from [AI4GD accelerator teams](https://theagencyfund.substack.com/p/ai-for-global-development-accelerator) and other leading organizations
 
 ## Natural Progression of Evaluation Levels
 
@@ -195,7 +201,7 @@ Test hypotheses through experimentation:
 - **Pragmatic RCTs**: For policy-relevant questions
 - **Full RCTs**: When causal question justifies cost
 
-**Key**: Match experimentation to product maturity, hypothesis scale, and decision stakes
+**Key**: Match experimentation to product maturity, hypothesis scale, and decision stakes. Tools like [**Evidential**](https://docs.evidential.dev/welcome/) help teams automate randomization and track results.
 
 ## Building Cross-Functional Teams
 
@@ -220,7 +226,7 @@ Evaluation is a **team sport** - no single role covers all four levels.
 
 **Question**: Does the AI model produce the desired responses?
 
-**Why important**: AI models, especially large language models (LLMs) and related foundational models, do not "understand" content in the way humans do. Instead, they generate outputs by predicting the next word in a sequence based on statistical patterns in their training data. Because of this, models can **hallucinate** or appear fluent and convincing while still being inaccurate, biased, irrelevant, or even harmful.
+**Why important**: AI models, especially large language models (LLMs) and related foundational models, do not ["understand"](https://www.sciencenews.org/article/ai-large-language-model-understanding?utm_source=chatgpt.com) content in the way humans do. Instead, they generate outputs by predicting the next word in a sequence based on statistical patterns in their training data. Because of this, models can **hallucinate** or appear fluent and convincing while still being inaccurate, biased, irrelevant, or even harmful.
 
 This makes structured model evaluation essential. We need to systematically and rigorously assess whether an AI system consistently meets conditions such as usefulness, accuracy, appropriateness, and safety across diverse tasks and user contexts. This is especially critical when AI tools are deployed in sensitive domains like education, health, or agriculture, where misinformation or misalignment can cause real harm.
 
@@ -230,11 +236,11 @@ Beyond ensuring safety, developers must also evaluate that their AI systems exhi
 
 Most Generative AI applications are built on foundational models like those from OpenAI (GPT), Anthropic (Claude), Google (Gemini), or Meta (Llama). However, your application is a full system, not just the foundational model. It includes many other components that can be grouped into three buckets:
 
-**Pre-processing**: Before handing off the input from the user to the LLM, you may wish to transform it into a format suitable for the LLM. Examples include: sanitizing or filtering language; converting speech to text; paraphrasing the user's request; translation from a low-resource language to a high-resource one.
+- **Pre-processing**: Before handing off the input from the user to the LLM, you may wish to transform it into a format suitable for the LLM. Examples include: sanitizing or filtering language; converting speech to text; paraphrasing the user's request; translation from a low-resource language to a high-resource one.
 
-**LLM context preparation**: An LLM takes three things as input: the "prompt" or system instructions, the user's input after being pre-processed, and a "context" which can include past conversation history, relevant content retrieved from your knowledge base, or even tools available for the LLM to call.
+- **LLM context preparation**: An LLM takes three things as input: the "prompt" or system instructions, the user's input after being pre-processed, and a "context" which can include past conversation history, relevant content retrieved from your knowledge base, or even tools available for the LLM to call.
 
-**Post-processing**: Before returning the output to the user, you may also wish to transform it into the correct format and check the output using safety or quality guardrails. Examples include: hallucination checker, converting text to speech, translation to the user's preferred language.
+- **Post-processing**: Before returning the output to the user, you may also wish to transform it into the correct format and check the output using safety or quality guardrails. Examples include: hallucination checker, converting text to speech, translation to the user's preferred language.
 
 **Example**: An AI agronomist in Senegal, answering questions from farmers in Pulaar, might: (a) check input for malicious intent, (b) translate from Pulaar to English, (c) retrieve relevant content from database, (d) retrieve information about the farmer, (e) generate an answer, (f) check that the answer is grounded, (g) translate back to Pulaar. Model evaluations cover this entire pipeline.
 
@@ -254,6 +260,12 @@ Most Generative AI applications are built on foundational models like those from
 5. **Measure scores and refine**: Use scores to improve solution
 6. **Red-teaming**: Actively try to break/pressure test before release
 
+## {.hidden}
+
+```{r, echo=FALSE, out.width="100%", fig.height=7.5, fig.align="center"}
+knitr::include_graphics("images/l1-framework.png")
+```
+
 ## Step 1: Decide on Rubric
 
 **Responsible**: Product Owners and Domain Experts (with Engineering support)
@@ -264,8 +276,8 @@ Most Generative AI applications are built on foundational models like those from
 
 | Organization | Product | Rubric Items |
 |--------------|---------|--------------|
-| **Jacaranda Health** | PROMPTS: Maternal health SMS service (Swahili/English) | Medical accuracy, personability, simplicity |
-| **Digital Green** | Farmer.Chat: Agricultural advice platform (40+ crops, 4 countries) | Faithfulness, relevance, accessibility |
+| **[Jacaranda Health](https://jacarandahealth.org/)** | PROMPTS: Maternal health SMS service (Swahili/English) | Medical accuracy, personability, simplicity ([Stanford Center for Digital Health, 2025](https://cdh.stanford.edu/our-research-portfolio/generative-ai-health-low-middle-income-countries)) |
+| **[Digital Green](https://digitalgreen.org/)** | Farmer.Chat: Agricultural advice platform (40+ crops, 4 countries) | Faithfulness, relevance, accessibility ([Singh et al., 2024](https://arxiv.org/abs/2409.08916)) |
 
 **Recommendation**: Restrict to ~5 items. Longer lists = more expensive and difficult. Tradeoffs exist (e.g., concise vs. complete, friendly vs. direct).
 
@@ -282,12 +294,12 @@ Engineering translates qualitative rubric into quantitative metrics (e.g., "Trus
 
 | Category | Examples | Speed | Accuracy | Cost | Best For |
 |----------|----------|-------|----------|------|----------|
-| **Statistical** | BLEU, ROUGE, METEOR | +++++ | ++ | + | Specific tasks |
-| **Model-based** | BLEURT, COMET, AlignScore | +++ | +++ | +++ | Domain-specific tasks |
-| **LLM-as-judge** | G-Eval, RARR | ++ | +++++ | +++++ | Flexible evaluation |
-| **Human evaluation** | Manual rating | + | +++++ | ++++++ | Calibration & QA |
+| **Statistical** | [BLEU](https://en.wikipedia.org/wiki/BLEU), [ROUGE](https://en.wikipedia.org/wiki/ROUGE_\(metric\)), [METEOR](https://en.wikipedia.org/wiki/METEOR), [WER](https://en.wikipedia.org/wiki/Word_error_rate) | +++++ | ++ | + | Specific tasks |
+| **Model-based** | [AlignScore](https://github.com/yuh-zha/AlignScore)/[LIM-RA](https://arxiv.org/pdf/2404.06579), [BLEURT](https://github.com/google-research/bleurt), [BARTScore](https://arxiv.org/pdf/2106.11520), [COMET](https://unbabel.github.io/COMET/html/index.html) | +++ | +++ | +++ | Domain-specific tasks |
+| **LLM-as-judge** | [G-Eval](https://arxiv.org/abs/2303.16634), [RARR](https://arxiv.org/abs/2210.08726) | ++ | +++++ | +++++ | Flexible evaluation |
+| **Human evaluation** | [Human evaluation](https://github.com/huggingface/evaluation-guidebook/blob/main/contents/human-evaluation/basics.md) | + | +++++ | ++++++ | Calibration & QA |
 
-**Ideal**: Combination of methods. Human evaluation's primary role: create "answer key" to calibrate automated scorers and final QA.
+**Ideal**: Combination of methods. Human evaluation's primary role: create "answer key" to calibrate automated scorers and final QA. Note: Human evaluation has [its own biases](https://arxiv.org/pdf/2307.03025).
 
 ## Step 3: Develop Golden Dataset
 
@@ -367,6 +379,8 @@ Product Owner ensures red-teaming is conducted and prioritizes remediation. Tech
 2. **Probe**: Adopt adversarial mindset, try to confuse/exploit/stress-test, capture failures
 3. **Prioritize**: Review by severity/likelihood, assign owners, rerun after fixes
 
+**Resources**: [Red-Teaming AI for Social Good Playbook](https://humane-intelligence.org/insights/research/#:~:text=UNESCO's%20Red%20Teaming%20Playbook%20is,promote%20ethical%20and%20inclusive%20AI.) (UNESCO & Human Intelligence, 2024), [Planning Red-Teaming for Large Language Models](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/red-teaming) (Microsoft Learn, 2024)
+
 ## Level 2: Product Evaluation
 
 **Question**: Does the product facilitate meaningful interactions?
@@ -390,6 +404,8 @@ Technology companies frequently evaluate and improve products by collecting user
 - **A/B testing**: Feature A vs. Feature B
 - **Multi-armed bandit**: Performance-based adaptive allocations
 - **Holdout testing**: AI vs. non-AI; status quo vs. accumulated improvements
+
+**Resources**: [AI4GD A/B Testing Playbook](https://docs.google.com/document/d/1_i1LjHIA3MHBCez1gxvSqZohN9zkwjG09h5L2k4BryQ/edit?tab=t.0#heading=h.wdgt1uho9q75), [AI4GD User Funnel and Metrics Playbook](https://docs.google.com/document/u/0/d/18OFMLI70IZLQuwhuxTwZXrDhw6Z-kpT-QUqZZJugEZ4/edit)
 
 ## Measurement Tools: Categories
 
@@ -484,9 +500,7 @@ There are 3 main reasons to do an impact evaluation:
 
 2. **Proof in different settings**: Once you know it works in a particular setting, with a particular target population, you may want to show it will work in other settings or for other populations - then you can do additional impact evaluations.
 
-3. **Cost-benefit analysis**: For many funders and public sector partners, IEs are critical for decision-making. They want credible evidence that a product meaningfully improves people's lives - beyond engagement metrics or self-reported satisfaction - before committing to scale. A well-designed IE sends a strong signal that your product works in real-world conditions, and that scaling it is likely to generate meaningful social returns.
-
-## Why Do an Impact Evaluation?
+3. **Cost-benefit analysis**: For many funders and public sector partners, IEs are critical for decision-making. They want credible evidence that a product meaningfully improves people's lives - beyond engagement metrics or self-reported satisfaction - before committing to scale. A well-designed IE sends a strong signal that your product works in real-world conditions, and that scaling it is likely to generate meaningful social returns (see e.g. [Hauser et al., 2025](https://www.nature.com/articles/d41586-025-02266-7.epdf?sharing_token=jCKO3Tx8dFeQfucqP5VCcNRgN0jAjWel9jnR3ZoTv0PS1htX8Sko7IudKf1MVjrKQ-g3NeuYAsnuJ-Io9wHN3uMBrjSLLnu_wjpJLF2G-unWgOw27UqLqC_yalnt2AFTYmMZAO31agMcWvNwKRpfYsfrMt3fmIKm0iVbftxqAsY%3D); [UK GOV, 2025](https://www.gov.uk/government/publications/the-magenta-book/guidance-on-the-impact-evaluation-of-ai-interventions-html)).
 
 IEs also help funders compare across opportunities. When paired with cost data, they allow for robust estimates of cost-effectiveness and cost-benefit analysis - crucial when governments, donors, and multilateral institutions are allocating scarce resources. In many cases, the result of an IE becomes a key input in decisions to scale, replicate, or exit.
 
@@ -530,6 +544,8 @@ Rigorous IEs require expertise. We recommend working with an **independent evalu
 3. **Difference-in-Differences**: Compare trends before/after intervention
 4. **Regression Discontinuity Design**: Compare units just above/below cutoff
 
+**Resources**: [Impact Evaluation in Practice](https://openknowledge.worldbank.org/server/api/core/bitstreams/4659ef23-61ff-5df7-9b4e-89fda12b074d/content) (Gertler et al., World Bank), [Running Randomized Evaluations](https://www.amazon.co.uk/Running-Randomized-Evaluations-Practical-Guide/dp/0691159270) (Glennerster & Takavarasha)
+
 **Focus**: What is distinctive when evaluating AI-based products
 
 ## Key Design Consideration 1: Counterfactual Selection
@@ -542,7 +558,7 @@ Rigorous IEs require expertise. We recommend working with an **independent evalu
 
 - **Non-AI digital tools**: Static chatbots or curated content
 
-- **Human-delivered services**: When AI substitutes for scarce labor
+- **Human-delivered services**: When AI substitutes for scarce labor (measure costs: [Cost Measurement Guide](https://www.worldbank.org/en/programs/sief-trust-fund/brief/cost-measurement))
 
 **Important**: Justify selection and explain what it helps illuminate
 
@@ -635,15 +651,28 @@ Rigorous IEs require expertise. We recommend working with an **independent evalu
 4. **Complementary methods**: All levels work together at different stages
 5. **Right-sized evaluation**: Make informed tradeoffs about what's "enough"
 
+## Additional Resources
+
+**Level 1 Case Studies**:
+- [Generative AI for Health in Low & Middle Income Countries](https://cdh.stanford.edu/generative-ai-health-low-middle-income-countries)
+- [Evaluation framework of PROMPTS at Jacaranda Health](https://cdh.stanford.edu/generative-ai-health-low-middle-income-countries)
+- [Evaluation framework at Precision Development](https://precisiondev.org/evaluating-ai-for-learning-a-framework/) ([slides](https://docs.google.com/presentation/d/1agCgpDWNVWtbOFhdlDYUpLM3OxyHP5CxyzON_tn61x0/edit?slide=id.p#slide=id.p))
+- [Evaluation of Farmer.Chat at Digital Green](https://arxiv.org/abs/2409.08916)
+- [Evaluation of mMitra at Armman](https://docs.google.com/presentation/d/1mAF1lI8tkTjLLW3SjwrV8mdz4VDkTdog/edit?slide=id.p1#slide=id.p1)
+
+**Level 3 Case Studies**:
+- [ChatSEL Documentation](https://agency-fund.github.io/chatsel-docs/docs/t1-intro)
+- [User Evaluation Workshop - ChatSEL](https://docs.google.com/document/d/18AXtIeDx6HsidhMKTJ2kIDb7hUwHEkEnwGPZuC9JJo0/edit?tab=t.0)
+
 ## Questions?
 **Authored by:**
-- **The Agency Fund**  
+- **[The Agency Fund](https://www.agency.fund/)**  
 - **IDInsight**  
-- **Center for Global Development**
+- **[Center for Global Development](https://www.cgdev.org/)**
 
 **November 2025**
 
 Please reach out to [Zezhen Wu](mailto:zezhen@agency.fund) for questions or comments.
 
-*This is a living playbook. Current version grounded in lessons from AI4GD accelerator teams and experts across disciplines.*
+*This is a living playbook. Current version grounded in lessons from [AI4GD accelerator teams](https://theagencyfund.substack.com/p/ai-for-global-development-accelerator) and experts across disciplines.*
 
