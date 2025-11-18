@@ -1,62 +1,68 @@
 /* Custom styles for the presentation */
 
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
 /* Global Styles */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   color: #2c3e50;
 }
 
 /* Title Slide */
-.title-slide {
-  background: #ffffff;
-  color: #2c3e50;
+.title-slide,
+slides > slide.title-slide {
+  background: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)), url('images/title-page.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  color: #ffffff;
   padding: 60px;
 }
 
+.title-slide *,
+slides > slide.title-slide * {
+  color: #ffffff;
+}
+
 .title-slide h1 {
-  color: #2c3e50;
+  color: #ffffff;
   font-size: 2.8em;
   font-weight: 700;
   margin-bottom: 20px;
   letter-spacing: -0.5px;
-  border-bottom: 4px solid #667eea;
+  border-bottom: 4px solid rgba(255,255,255,0.6);
   padding-bottom: 15px;
 }
 
 .title-slide h2 {
-  color: #667eea;
+  color: #ffffff;
   font-size: 1.4em;
   font-weight: 400;
   margin-top: 15px;
-  border-bottom: 3px solid #667eea;
+  border-bottom: 3px solid rgba(255,255,255,0.45);
   padding-bottom: 10px;
 }
 
 .title-slide h3 {
-  color: #555;
+  color: #ffffff;
   font-size: 1.1em;
   font-weight: 300;
   margin-top: 30px;
 }
 
 .title-slide p {
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 /* Regular Slides */
 slides > slide {
   background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   padding: 60px;
   font-size: 1.1em;
   line-height: 1.6;
-}
-
-slides > slide.title-slide {
-  background: #ffffff;
-  color: #2c3e50;
 }
 
 /* Headings */
@@ -293,4 +299,3 @@ slides > slide article img {
   visibility: visible !important;
   opacity: 1 !important;
 }
-
