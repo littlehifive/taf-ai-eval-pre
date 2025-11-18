@@ -11,37 +11,39 @@ body {
 
 /* Title Slide */
 .title-slide {
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
-  color: white;
+  background: #ffffff;
+  color: #2c3e50;
   padding: 60px;
 }
 
 .title-slide h1 {
-  color: #ecf0f1;
+  color: #2c3e50;
   font-size: 2.8em;
   font-weight: 700;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
   letter-spacing: -0.5px;
+  border-bottom: 4px solid #667eea;
+  padding-bottom: 15px;
 }
 
 .title-slide h2 {
-  color: #bdc3c7;
+  color: #667eea;
   font-size: 1.4em;
   font-weight: 400;
   margin-top: 15px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 10px;
 }
 
 .title-slide h3 {
-  color: #95a5a6;
+  color: #555;
   font-size: 1.1em;
   font-weight: 300;
   margin-top: 30px;
 }
 
 .title-slide p {
-  color: #ecf0f1;
+  color: #2c3e50;
 }
 
 /* Regular Slides */
@@ -53,8 +55,8 @@ slides > slide {
 }
 
 slides > slide.title-slide {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: #ffffff;
+  color: #2c3e50;
 }
 
 /* Headings */
@@ -77,10 +79,10 @@ h2 {
   padding-bottom: 10px;
 }
 
-/* Remove border from hidden h2 headers */
-h2.hidden {
+/* Remove headings that have no text (used for blank slides) */
+slides > slide hgroup h2:empty {
+  display: none !important;
   border: none !important;
-  border-bottom: none !important;
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -249,95 +251,38 @@ slides > slide > *:last-child {
 slides > slide img {
   max-width: 95% !important;
   max-height: 85vh !important;
-  height: auto !important;
-  width: auto !important;
   display: block !important;
   margin: 20px auto !important;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* Hide headers with .hidden class */
-slides > slide hgroup h2.hidden {
-  display: none !important;
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* Remove any spacing from hidden header groups */
-slides > slide:has(hgroup h2.hidden) hgroup {
-  display: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: 0 !important;
-  border: none !important;
-}
-
-/* Full-page image slides - slides with hidden headers */
-slides > slide:has(hgroup h2.hidden) article {
+/* Blank / full-width image slides (triggered with `.hidden` on the slide) */
+slides > slide > hgroup + article.hidden {
   display: flex !important;
+  flex-direction: column;
   align-items: center !important;
   justify-content: center !important;
-  height: 100vh !important;
-  padding: 20px !important;
+  min-height: calc(100vh - 120px) !important;
+  padding: 0 !important;
   margin: 0 !important;
   overflow: hidden !important;
 }
 
-/* Allow R chunk options to control image size - only set max constraints */
-slides > slide:has(hgroup h2.hidden) article img {
-  max-width: 85% !important;
+slides > slide > hgroup + article.hidden img {
+  max-width: 75% !important;
   max-height: 85vh !important;
-  width: auto !important;
-  height: auto !important;
   margin: 0 auto !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   object-fit: contain !important;
 }
 
-/* Specific styling for the first framework image - make it smaller and ensure it fits */
-slides > slide:has(hgroup h2.hidden) article img[src*="ai-eval-framework"],
-slides > slide:has(hgroup h2.hidden) article p img[src*="ai-eval-framework"],
-slides > slide:has(hgroup h2.hidden) article figure img[src*="ai-eval-framework"] {
-  max-width: 60% !important;
-  max-height: 55vh !important;
-  width: auto !important;
-  height: auto !important;
-  object-fit: contain !important;
-  display: block !important;
-  margin: 0 auto !important;
-}
-
-/* Full-page image slides - slides without hgroup (no title) */
-slides > slide:not(:has(hgroup)) article {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  height: 100vh !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-slides > slide:not(:has(hgroup)) article img {
-  max-width: 100% !important;
-  max-height: 100vh !important;
-  width: auto !important;
-  height: auto !important;
-  margin: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  object-fit: contain !important;
-}
-
-/* Fallback for browsers that don't support :has() - target slides with only image content */
+/* Fallback for slides that only contain a single image */
 slides > slide article > p:only-child > img,
 slides > slide article > p > img:only-child {
   max-width: 100% !important;
   max-height: 100vh !important;
-  width: auto !important;
-  height: auto !important;
   margin: 0 auto !important;
   display: block !important;
 }
