@@ -55,9 +55,9 @@ This playbook organizes evaluation around four levels:
 
 ## {.hidden}
 
-```{r, echo=FALSE, out.width="80%", fig.align="center"}
-knitr::include_graphics("images/ai-eval-framework.png")
-```
+<div class="full-image-slide">
+  <img src="images/ai-eval-framework.png" alt="AI evaluation framework diagram" />
+</div>
 
 ## Continuous Evaluation: The Central Element
 
@@ -233,6 +233,8 @@ Most Generative AI applications are built on foundational models like those from
 
 - **Post-processing**: Before returning the output to the user, you may also wish to transform it into the correct format and check the output using safety or quality guardrails. Examples include: hallucination checker, converting text to speech, translation to the user's preferred language.
 
+## What is Being Assessed?
+
 **Example**: An AI agronomist in Senegal, answering questions from farmers in Pulaar, might: (a) check input for malicious intent, (b) translate from Pulaar to English, (c) retrieve relevant content from database, (d) retrieve information about the farmer, (e) generate an answer, (f) check that the answer is grounded, (g) translate back to Pulaar. Model evaluations cover this entire pipeline.
 
 ## Who is Most Involved?
@@ -253,9 +255,9 @@ Most Generative AI applications are built on foundational models like those from
 
 ## {.hidden}
 
-```{r, echo=FALSE, out.width="100%", fig.height=7.5, fig.align="center"}
-knitr::include_graphics("images/l1-framework.png")
-```
+<div class="full-image-slide">
+  <img src="images/l1-framework.png" alt="Level 1 evaluation framework diagram" />
+</div>
 
 ## Step 1: Decide on Rubric
 
@@ -314,13 +316,13 @@ A good dataset should cover:
 - **Out-of-context requests**: Questions your application doesn't support
 - **Adversarial requests**: Abusive input, prompt injection, jailbreaking, data & privacy attacks
 
-## Step 4: Running Automated Evals
+## Step 4: Run Automated Evaluations
 
 **Responsible**: Engineering (with Product Owner support)
 
 Automate evaluations and integrate into CI/CD pipeline. Product Owner monitors performance trends over time.
 
-## Step 4: Running Automated Evals
+## Step 4: Run Automated Evaluations
 
 | Eval Type | Examples | Frequency | When |
 |-----------|----------|-----------|------|
@@ -382,7 +384,7 @@ Product Owner ensures red-teaming is conducted and prioritizes remediation. Tech
 
 Technology companies frequently evaluate and improve products by collecting user interaction metrics and then running rapid cycles of digital experiments. For example, they may track a user's journey on a website, automatically collecting records like which products users click on and whether they return to the site. Then, they can compare how different web or app experiences affect browsing time or user satisfaction.
 
-**Unique advantages of digital**: This rapid, iterative process is enabled by two factors unique to digital interventions: (1) iterations of the product can be precisely and efficiently deployed to different users, and (2) on-platform engagement outcomes are costless to collect and transform into meaningful engagement metrics.
+**Unique advantages of digital interventions**: This rapid, iterative process is enabled by two factors unique to digital interventions: (1) iterations of the product can be precisely and efficiently deployed to different users, and (2) on-platform engagement outcomes are costless to collect and transform into meaningful engagement metrics.
 
 ## Who is Most Involved?
 
@@ -398,7 +400,7 @@ Technology companies frequently evaluate and improve products by collecting user
 - **Multi-armed bandit**: Performance-based adaptive allocations
 - **Holdout testing**: AI vs. non-AI; status quo vs. accumulated improvements
 
-**Resources**: [AI4GD A/B Testing Playbook](https://docs.google.com/document/d/1_i1LjHIA3MHBCez1gxvSqZohN9zkwjG09h5L2k4BryQ/edit?tab=t.0#heading=h.wdgt1uho9q75), [AI4GD User Funnel and Metrics Playbook](https://docs.google.com/document/u/0/d/18OFMLI70IZLQuwhuxTwZXrDhw6Z-kpT-QUqZZJugEZ4/edit)
+**Resources**: [AI4GD A/B Testing Playbook (Work in Progress)](https://docs.google.com/document/d/1_i1LjHIA3MHBCez1gxvSqZohN9zkwjG09h5L2k4BryQ/edit?tab=t.0#heading=h.wdgt1uho9q75), [AI4GD User Funnel and Metrics Playbook](https://drive.google.com/file/d/1V9OKYFgThrtUOrGjh8nrTKaFXCPtYIpA/view)
 
 ## Measurement Tools: Categories
 
