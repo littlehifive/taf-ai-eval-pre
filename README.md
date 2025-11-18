@@ -4,10 +4,10 @@ This repository contains the R Markdown presentation based on the Generative AI 
 
 ## Files
 
-- `presentation/ai_eval_presentation.Rmd` - The main R Markdown source file
-- `presentation/ai_eval_presentation.html` - HTML presentation (ioslides format) with modern styling
-- `presentation/styles.css` - Custom CSS styling for the HTML presentation (includes Google Fonts, gradients, improved typography)
-- `presentation/images/` - Image assets for the presentation
+- `docs/ai_eval_presentation.Rmd` - The main R Markdown source file
+- `docs/index.html` - HTML presentation (ioslides format) with modern styling
+- `docs/styles.css` - Custom CSS styling for the HTML presentation (includes Google Fonts, gradients, improved typography)
+- `docs/images/` - Image assets for the presentation
 
 ## GitHub Pages Deployment
 
@@ -34,7 +34,7 @@ Every time you push changes to the `main` branch:
 3. **Access your presentation:**
    - After the first successful deployment, your presentation will be available at your GitHub Pages URL
 
-For more details, see `presentation/GITHUB_PAGES_SETUP.md`.
+For more details, see `docs/GITHUB_PAGES_SETUP.md`.
 
 ## Styling Improvements
 
@@ -56,20 +56,20 @@ To regenerate the presentations locally, you can use R or RStudio:
 library(rmarkdown)
 
 # Generate HTML presentation
-render('presentation/ai_eval_presentation.Rmd', output_format = 'ioslides_presentation')
+render('docs/ai_eval_presentation.Rmd', output_format = 'ioslides_presentation')
 
 # Generate PowerPoint presentation (if needed)
-render('presentation/ai_eval_presentation.Rmd', output_format = 'powerpoint_presentation')
+render('docs/ai_eval_presentation.Rmd', output_format = 'powerpoint_presentation')
 ```
 
 ### From Command Line:
 
 ```bash
 # HTML
-Rscript -e "library(rmarkdown); render('presentation/ai_eval_presentation.Rmd', output_format = 'ioslides_presentation')"
+Rscript -e "library(rmarkdown); render('docs/ai_eval_presentation.Rmd', output_format = 'ioslides_presentation')"
 
 # PowerPoint (if needed)
-Rscript -e "library(rmarkdown); render('presentation/ai_eval_presentation.Rmd', output_format = 'powerpoint_presentation')"
+Rscript -e "library(rmarkdown); render('docs/ai_eval_presentation.Rmd', output_format = 'powerpoint_presentation')"
 ```
 
 **Note:** The HTML presentation is automatically regenerated and deployed via GitHub Actions when you push changes, so you typically don't need to regenerate it manually.
@@ -97,4 +97,3 @@ The presentation covers:
 7. **Level 4: Impact Evaluation** - Does access improve development outcomes?
 
 The content is faithful to the original playbook while adapted for slide format.
-
