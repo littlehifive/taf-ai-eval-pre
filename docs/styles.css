@@ -12,6 +12,7 @@ body {
 /* Title Slide */
 .title-slide,
 slides > slide.title-slide {
+  position: relative;
   background: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)), url('images/title-page.png');
   background-size: cover;
   background-position: center;
@@ -56,6 +57,22 @@ slides > slide.title-slide * {
   color: #ffffff;
 }
 
+/* Title slide footer note */
+.title-slide::after,
+slides > slide.title-slide::after {
+  content: 'This playbook is an updated version of the playbook created by the Agency Fund, with input from IDInsight and CGD.';
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  right: 60px;
+  font-size: 0.75em;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: left;
+  font-weight: 300;
+  line-height: 1.4;
+  z-index: 10;
+}
+
 /* Regular Slides */
 slides > slide {
   background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
@@ -65,23 +82,64 @@ slides > slide {
   line-height: 1.6;
 }
 
+/* Section title pages (slides with only h1 heading in hgroup, no article content) */
+/* Exclude title-slide to preserve its image background */
+/* Target the slide itself when it only has an hgroup with h1 */
+slides > slide:not(.title-slide):has(> hgroup:only-child > h1),
+slides > slide:not(.title-slide):has(> hgroup:first-child:last-child > h1) {
+  background: #003366 !important;
+  color: #ffffff !important;
+}
+
+slides > slide:not(.title-slide):has(> hgroup:only-child > h1) *,
+slides > slide:not(.title-slide):has(> hgroup:first-child:last-child > h1) * {
+  color: #ffffff !important;
+}
+
+slides > slide:not(.title-slide):has(> hgroup:only-child > h1) h1,
+slides > slide:not(.title-slide):has(> hgroup:first-child:last-child > h1) h1 {
+  color: #ffffff !important;
+  border-bottom-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Fallback for browsers that don't support :has() - target slides with specific structure */
+/* Exclude title-slide to preserve its image background */
+slides > slide.segue:not(.title-slide),
+slides > slide.segue.dark:not(.title-slide) {
+  background: #003366 !important;
+  color: #ffffff !important;
+}
+
+slides > slide.segue:not(.title-slide) *,
+slides > slide.segue.dark:not(.title-slide) * {
+  color: #ffffff !important;
+}
+
+slides > slide.segue:not(.title-slide) h1,
+slides > slide.segue.dark:not(.title-slide) h1,
+slides > slide.segue:not(.title-slide) h2,
+slides > slide.segue.dark:not(.title-slide) h2 {
+  color: #ffffff !important;
+  border-bottom-color: rgba(255, 255, 255, 0.5) !important;
+}
+
 /* Headings */
 h1 {
   color: #2c3e50;
   font-weight: 700;
   font-size: 2.5em;
   margin-bottom: 30px;
-  border-bottom: 4px solid #667eea;
+  border-bottom: 4px solid #003366;
   padding-bottom: 15px;
 }
 
 h2 {
-  color: #667eea;
+  color: #003366;
   font-weight: 600;
   font-size: 2em;
   margin-top: 40px;
   margin-bottom: 25px;
-  border-bottom: 3px solid #667eea;
+  border-bottom: 3px solid #003366;
   padding-bottom: 10px;
 }
 
@@ -155,7 +213,13 @@ ol li {
 
 /* Strong emphasis in lists */
 li strong {
-  color: #667eea;
+  color: #003366;
+  font-weight: 600;
+}
+
+/* All bold/strong text */
+strong {
+  color: #003366;
   font-weight: 600;
 }
 
@@ -177,7 +241,7 @@ table {
 }
 
 table th {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #003366 0%, #004080 100%);
   color: white;
   padding: 15px;
   text-align: left;
@@ -207,7 +271,7 @@ table tr:last-child td {
 /* Code blocks */
 pre {
   background: #f4f4f4;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #003366;
   padding: 15px;
   border-radius: 4px;
   overflow-x: auto;
@@ -222,7 +286,7 @@ code {
 
 /* Blockquotes */
 blockquote {
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #003366;
   padding-left: 20px;
   margin: 20px 0;
   font-style: italic;
