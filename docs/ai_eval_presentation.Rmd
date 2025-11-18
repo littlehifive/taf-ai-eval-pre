@@ -373,7 +373,7 @@ Product Owner ensures red-teaming is conducted and prioritizes remediation. Tech
 
 **What is red-teaming?** Structured adversarial testing to proactively discover vulnerabilities, biases, and failure modes before users do. Think like a malicious actor, confused user, or edge-case generator.
 
-## Step 6: When is Red-Teaming Critical?
+## Step 6: Red-Teaming
 
 | Scenario | Why Critical |
 |----------|--------------|
@@ -382,7 +382,7 @@ Product Owner ensures red-teaming is conducted and prioritizes remediation. Tech
 | **High-Risk Domains** | Maternal health, medical advice, financial planning - severe impact of failure |
 | **Population-Scale** | Unknown interaction patterns; improbable behaviors will occur at scale |
 
-## Step 6: Red-Teaming Process
+## Step 6: Red-Teaming
 
 **Plan** → **Probe** → **Prioritize**
 
@@ -448,7 +448,7 @@ User psychological and behavioral changes are early indicators of long-term deve
 ## Level 3: Focus Areas
 
 | Area | Question | Example Constructs |
-|------|----------|-------------------|
+|------|------------------------|----------|
 | **Cognitive** | Are users gaining new knowledge or correcting misconceptions? Do they demonstrate improved skills or decision-making ability as a result of using the AI? | Users’ comprehension, reflection, reasoning, and perceived clarity or understanding during interaction |
 | **Affective** | How does the product make users feel? Do users report feeling supported, motivated, and capable after interactions, or are there indications of frustration, confusion, or emotional distress? | Mood, sense of belonging, perceived empathy, trust, or comfort interacting with AI |
 | **Behavioral** | Are users taking small but meaningful actions (e.g., asking more questions, trying out recommended behaviors) that would predict their longer-term development? | Users’ acquisition, recall, and application of factual or procedural information, and observable behaviors (e.g., asking more questions, trying out recommended behaviors) that are proxies for longer-term development outcomes |
@@ -518,6 +518,8 @@ There are 3 main reasons to do an impact evaluation:
 2. **Proof in different settings**: Once you know it works in a particular setting, with a particular target population, you may want to show it will work in other settings or for other populations - then you can do additional impact evaluations.
 
 3. **Cost-benefit analysis**: For many funders and public sector partners, IEs are critical for decision-making. They want credible evidence that a product meaningfully improves people's lives - beyond engagement metrics or self-reported satisfaction - before committing to scale. A well-designed IE sends a strong signal that your product works in real-world conditions, and that scaling it is likely to generate meaningful social returns (see e.g. [Hauser et al., 2025](https://www.nature.com/articles/d41586-025-02266-7.epdf?sharing_token=jCKO3Tx8dFeQfucqP5VCcNRgN0jAjWel9jnR3ZoTv0PS1htX8Sko7IudKf1MVjrKQ-g3NeuYAsnuJ-Io9wHN3uMBrjSLLnu_wjpJLF2G-unWgOw27UqLqC_yalnt2AFTYmMZAO31agMcWvNwKRpfYsfrMt3fmIKm0iVbftxqAsY%3D); [UK GOV, 2025](https://www.gov.uk/government/publications/the-magenta-book/guidance-on-the-impact-evaluation-of-ai-interventions-html)).
+
+## Why Do an Impact Evaluation?
 
 IEs also help funders compare across opportunities. When paired with cost data, they allow for robust estimates of cost-effectiveness and cost-benefit analysis - crucial when governments, donors, and multilateral institutions are allocating scarce resources. In many cases, the result of an IE becomes a key input in decisions to scale, replicate, or exit.
 
