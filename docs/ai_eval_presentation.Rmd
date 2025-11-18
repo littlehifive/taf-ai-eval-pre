@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 ## The Challenge
 
-- Generative AI tools in low- and middle-income countries are multiplying
+- Generative AI tools in low- and middle-income countries are multiplying:
   - AI-powered math tutors for children
   - Digital advisory tools for farmers
   - Health assistants

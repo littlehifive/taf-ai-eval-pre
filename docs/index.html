@@ -3164,7 +3164,7 @@ src: url(data:font/ttf;base64,AAEAAAASAQAABAAgR0RFRqV1ni4AAANwAAABpkdQT1OAemBrAA
 
 body {
 font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-color: #2c3e50;
+color: #333333;
 }
 
 .title-slide,
@@ -3227,6 +3227,7 @@ z-index: 10;
 slides > slide {
 background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
 font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+color: #333333;
 padding: 60px;
 font-size: 1.1em;
 line-height: 1.6;
@@ -3268,7 +3269,7 @@ border-bottom-color: rgba(255, 255, 255, 0.5) !important;
 }
 
 h1 {
-color: #2c3e50;
+color: #333333;
 font-weight: 700;
 font-size: 2.5em;
 margin-bottom: 30px;
@@ -3292,7 +3293,7 @@ margin: 0 !important;
 padding: 0 !important;
 }
 h3 {
-color: #555;
+color: #333333;
 font-weight: 600;
 font-size: 1.5em;
 margin-top: 30px;
@@ -3320,7 +3321,7 @@ display: inline !important;
 }
 ul li {
 list-style-type: disc !important;
-color: #2c3e50;
+color: #333333;
 margin-left: 0;
 }
 ul ul {
@@ -3356,6 +3357,20 @@ p {
 margin: 15px 0;
 line-height: 1.7;
 font-size: 1.05em;
+color: #333333;
+}
+
+slides > slide:not(.title-slide):not(:has(> hgroup:only-child > h1)):not(.segue) p,
+slides > slide:not(.title-slide):not(.segue) p {
+color: #333333;
+}
+slides > slide:not(.title-slide):not(:has(> hgroup:only-child > h1)):not(.segue) li,
+slides > slide:not(.title-slide):not(.segue) li {
+color: #333333;
+}
+slides > slide:not(.title-slide):not(:has(> hgroup:only-child > h1)):not(.segue) h3,
+slides > slide:not(.title-slide):not(.segue) h3 {
+color: #333333;
 }
 
 table {
@@ -3495,7 +3510,7 @@ opacity: 1 !important;
 </article></slide><slide class=""><hgroup><h2>The Challenge</h2></hgroup><article  id="the-challenge" class="smaller ">
 
 <ul>
-<li><p>Generative AI tools in low- and middle-income countries are multiplying</p>
+<li><p>Generative AI tools in low- and middle-income countries are multiplying:</p>
 
 <ul>
 <li>AI-powered math tutors for children</li>

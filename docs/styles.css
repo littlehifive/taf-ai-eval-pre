@@ -6,7 +6,7 @@
 /* Global Styles */
 body {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  color: #2c3e50;
+  color: #333333;
 }
 
 /* Title Slide */
@@ -77,6 +77,7 @@ slides > slide.title-slide::after {
 slides > slide {
   background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  color: #333333;
   padding: 60px;
   font-size: 1.1em;
   line-height: 1.6;
@@ -125,7 +126,7 @@ slides > slide.segue.dark:not(.title-slide) h2 {
 
 /* Headings */
 h1 {
-  color: #2c3e50;
+  color: #333333;
   font-weight: 700;
   font-size: 2.5em;
   margin-bottom: 30px;
@@ -152,7 +153,7 @@ slides > slide hgroup h2:empty {
 }
 
 h3 {
-  color: #555;
+  color: #333333;
   font-weight: 600;
   font-size: 1.5em;
   margin-top: 30px;
@@ -184,7 +185,7 @@ li p {
 
 ul li {
   list-style-type: disc !important;
-  color: #2c3e50;
+  color: #333333;
   margin-left: 0;
 }
 
@@ -228,6 +229,23 @@ p {
   margin: 15px 0;
   line-height: 1.7;
   font-size: 1.05em;
+  color: #333333;
+}
+
+/* Ensure regular slides have charcoal gray text (excluding title and section pages) */
+slides > slide:not(.title-slide):not(:has(> hgroup:only-child > h1)):not(.segue) p,
+slides > slide:not(.title-slide):not(.segue) p {
+  color: #333333;
+}
+
+slides > slide:not(.title-slide):not(:has(> hgroup:only-child > h1)):not(.segue) li,
+slides > slide:not(.title-slide):not(.segue) li {
+  color: #333333;
+}
+
+slides > slide:not(.title-slide):not(:has(> hgroup:only-child > h1)):not(.segue) h3,
+slides > slide:not(.title-slide):not(.segue) h3 {
+  color: #333333;
 }
 
 /* Tables */
