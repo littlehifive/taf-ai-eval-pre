@@ -14,12 +14,22 @@ output:
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-## Authors
+## Disclaimers
+
+**Authors:**
+
 - [The Agency Fund](https://www.agency.fund/): Zezhen Wu, Robert On, James Walsh, Edmund Korley, Temina Madon, Linus Wong
 - [IDInsight](https://www.idinsight.org/): Sid Ravinutala
 - [Center for Global Development](https://www.cgdev.org/): Han Sheng Chia, Markus Goldstein
 
 This playbook is an updated version of the [AI Evaluation in the Social Sector Playbook](https://eval.playbook.org.ai/) created by The Agency Fund (see original authors and contributors [here](https://eval.playbook.org.ai/authors)), with input from IDInsight and CGD.
+
+The source code for this playbook is available on [GitHub](https://github.com/littlehifive/taf-ai-eval-pre).
+
+<div class="download-note">
+  <button onclick="window.print()">Download PDF</button>
+  <span>Tip: Click on “Save as PDF” to save this presentation as a PDF file.</span>
+</div>
 
 # Introduction {.smaller}
 
