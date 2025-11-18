@@ -463,6 +463,52 @@ User psychological and behavioral changes are early indicators of long-term deve
 
 4. **Off-Platform Measures**: Longer surveys, observer reports, objective performance data
 
+## On-Platform Behavioral Measures: Examples
+
+| Metric | What It Measures | Why It Matters | Example Indicators |
+|--------|------------------|----------------|--------------------|
+| **Frequency & Depth of Queries** | How often users ask questions and how advanced their questions become | Higher frequency signals curiosity; deeper, more specific questions signal knowledge growth and confidence | User moves from “What is X?” → “How does X compare to Y in scenario Z?”; increased number of daily queries |
+| **Language Complexity** | Growth in vocabulary, syntax, and sophistication of user language | More complex language reflects cognitive development and mastery of subject matter | Longer messages, domain-specific terminology, more complex sentence structures |
+| **Follow-Up Question Rate** | How often users ask a related follow-up after receiving an answer | Indicates sustained engagement, deeper thinking, and an inquiry mindset | “That makes sense—what about ___?”; more dialogue turns per query; rising follow-up ratio |
+| **Session Duration & Return Rate** | Time spent per session and frequency of returning to the app | Longer voluntary sessions and higher return rates show motivation, value perception, and learning persistence | Session length increasing week-over-week; user returns 4x/week instead of 1x |
+
+## Short Self-Report Surveys: Examples
+
+Often, the most direct way to gauge a user’s thoughts, feelings, knowledge, and behaviors is simply to ask them. Short surveys can capture self-reported changes and subjective experience. When developing such measures in an AI product, a few guidelines are important:
+
+- **Direct measurement tool** for users’ thoughts, feelings, knowledge, and behaviors.
+- **Use validated items** when possible (e.g., self-efficacy, motivation, emotional state).  
+  - Examples: “I learned something new today,” “I feel more confident,” “This chat motivated me,” “I plan to try the recommended technique.”
+- **Keep surveys brief** (2–4 well-chosen questions).  
+  - Combine quick rating scales, emotion check-ins, and one optional open-text question.
+- **Integrate seamlessly into chat flow** at natural breakpoints.  
+  - Use conversational micro-surveys so reflection feels natural, not intrusive.
+
+## NLP & Text Analysis: Examples
+
+ An exciting addition to the toolkit is using Natural Language Processing (NLP) methods to analyze what users say or write during their interactions. The actual conversation logs or written outputs can be mined for signals of cognitive or emotional change. Approaches include:
+
+- **Analyzes users’ language** to detect cognitive, emotional, and behavioral change over time.
+- **Sentiment analysis:** Tracks shifts in tone (e.g., anxious → confident). Flags frustration or increasing comfort.
+- **Topic modeling & keyword analysis:** Shows movement from basic → advanced topics; surfaces themes like “exam anxiety.”
+- **LIWC / dictionary tools:** Quantifies psychological markers (emotion words, cognitive-process words, social words).  
+  - Example: more “we/us” → greater connection; fewer negatives (“never, not”) → reduced negativity.
+- **LLM-based scoring:** GPT-style models rate constructs directly (e.g., confidence 1–5, belonging 1–5).  
+  - Enables nuanced user profiles (e.g., sentiment ↑, confidence ↑, independence 3/5).
+
+## Off-Platform Measures: Examples
+
+In some cases, we need to look beyond the app itself to gauge real-world behavior changes. Especially for outcomes that manifest in daily life or over longer periods, we might collect data through:
+
+- Used to capture **real-world changes** that happen outside the app or over longer periods.
+- **Longer surveys or interviews:** Assess knowledge (quizzes), well-being, or behavior frequency.  
+  - Example: “How often did you practice math this week?” or user reflections in interviews.
+- **Observer reports:** Teachers/parents provide external validation of changes.  
+  - Example: “My child now approaches homework more confidently.”
+- **Objective performance data:** Link AI use to measurable outcomes.  
+  - Examples: pre/post writing samples, test scores, task completion rates, health behaviors.
+- These measures provide **strong evidence** of user-level change and help verify that in-app improvements translate into real-world impact.
+
 # Level 4: Impact Evaluation {.smaller}
 
 ## Level 4: Impact Evaluation
