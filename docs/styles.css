@@ -60,7 +60,7 @@ slides > slide.title-slide * {
 /* Title slide footer note */
 .title-slide::after,
 slides > slide.title-slide::after {
-  content: 'This playbook is an updated version of the playbook created by the Agency Fund, with input from IDInsight and CGD.';
+  content: 'This playbook is an updated version of the playbook created by The Agency Fund (https://eval.playbook.org.ai/), with additional input from IDInsight and CGD.';
   position: absolute;
   bottom: 40px;
   left: 60px;

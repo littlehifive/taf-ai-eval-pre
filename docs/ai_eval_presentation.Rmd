@@ -14,6 +14,13 @@ output:
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
+## Authors
+- [The Agency Fund](https://www.agency.fund/): Zezhen Wu, Robert On, James Walsh, Edmund Korley, Temina Madon, Linus Wong
+- [IDInsight](https://www.idinsight.org/): Sid Ravinutala
+- [Center for Global Development](https://www.cgdev.org/): Han Sheng Chia, Markus Goldstein
+
+This playbook is an updated version of the [AI Evaluation in the Social Sector Playbook](https://eval.playbook.org.ai/) created by The Agency Fund (see original authors and contributors [here](https://eval.playbook.org.ai/authors)), with input from IDInsight and CGD.
+
 # Introduction {.smaller}
 
 ## The Challenge
@@ -157,11 +164,11 @@ A well-designed evaluation framework is only as good as the data infrastructure 
 
 - **Extract**: Collect data from various sources - chat logs, product telemetry, survey tools, third-party APIs, or spreadsheets
 
-- **Transform**: Clean, standardize, and reshape the raw data into a usable format. This could involve timestamp alignment, anonymization, session stitching, or deriving new metrics like time-on-task indicators
+- **Transform**: Clean, standardize, and reshape the raw data into a usable format. This could involve timestamp alignment, anonymization, session stitching, or deriving new metrics and indicators
 
 - **Load**: Store the transformed data in a centralized system (like a data warehouse or analytics dashboard) where teams can access it for analysis, visualization, or modeling
 
-- **Why critical**: AI products, especially those using generative models, produce high volumes of complex, often unstructured data: prompts, outputs, clicks, feedback, engagement patterns, and more. Without a clear ETL pipeline, turning raw data into actionable metrics at scale becomes unreliable and slow.
+**Why critical**: AI products, especially those using generative models, produce high volumes of complex, often unstructured data: prompts, outputs, clicks, feedback, engagement patterns, and more. Without a clear ETL pipeline, turning raw data into actionable metrics at scale becomes unreliable and slow.
 
 - **Example**: A product designed to support adolescent mental health might collect model-level outputs (Level 1), engagement logs (Level 2), behavioral indicators (Level 3), and outcome data (Level 4) - all requiring integration through a robust pipeline.
 
@@ -423,7 +430,7 @@ Technology companies frequently evaluate and improve products by collecting user
 
 **Why important**: Once product functions correctly (Level 1) and engages users (Level 2), ask: 
 
-**Is it changing how users think, feel, or act?** 
+- **Is it changing how users think, feel, or act?** 
 
 User psychological and behavioral changes are early indicators of long-term development goals. These evaluations are faster and cheaper than full impact evaluations, allowing rapid iteration.
 
@@ -450,12 +457,7 @@ User psychological and behavioral changes are early indicators of long-term deve
 
 ## Measurement Tools: 4 Categories
 
-1. **On-Platform Behavioral Measures**:
-   - Frequency and depth of queries
-   - Changes in language complexity
-   - Follow-up question rate
-   - Session duration & return rate
-   - Feature utilization and AI suggestions followed
+1. **On-Platform Behavioral Measures**: e.g., Frequency and depth of queries, changes in language complexity, follow-up question rate, session duration & return rate, feature utilization and AI suggestions followed, feature utilization and AI suggestions followed
 
 2. **Short Self-Report Surveys**: Validated scales, brief and specific, integrated into flow
 
@@ -491,9 +493,9 @@ Often, the most direct way to gauge a user’s thoughts, feelings, knowledge, an
 - **Analyzes users’ language** to detect cognitive, emotional, and behavioral change over time.
 - **Sentiment analysis:** Tracks shifts in tone (e.g., anxious → confident). Flags frustration or increasing comfort.
 - **Topic modeling & keyword analysis:** Shows movement from basic → advanced topics; surfaces themes like “exam anxiety.”
-- **LIWC / dictionary tools:** Quantifies psychological markers (emotion words, cognitive-process words, social words).  
+- **[LIWC](https://www.liwc.app/) / dictionary tools:** Quantifies psychological markers (emotion words, cognitive-process words, social words).  
   - Example: more “we/us” → greater connection; fewer negatives (“never, not”) → reduced negativity.
-- **LLM-based scoring:** GPT-style models rate constructs directly (e.g., confidence 1–5, belonging 1–5).  
+- **[LLM-based scoring](https://arxiv.org/abs/2309.10771):** GPT-style models rate constructs directly (e.g., confidence 1–5, belonging 1–5).  
   - Enables nuanced user profiles (e.g., sentiment ↑, confidence ↑, independence 3/5).
 
 ## Off-Platform Measures: Examples
@@ -701,20 +703,31 @@ Rigorous IEs require expertise. We recommend working with an **independent evalu
 ## Additional Resources
 
 **Level 1 Case Studies**:
+
 - [Generative AI for Health in Low & Middle Income Countries](https://cdh.stanford.edu/generative-ai-health-low-middle-income-countries)
+
 - [Evaluation framework of PROMPTS at Jacaranda Health](https://cdh.stanford.edu/generative-ai-health-low-middle-income-countries)
+
 - [Evaluation framework at Precision Development](https://precisiondev.org/evaluating-ai-for-learning-a-framework/) ([slides](https://docs.google.com/presentation/d/1agCgpDWNVWtbOFhdlDYUpLM3OxyHP5CxyzON_tn61x0/edit?slide=id.p#slide=id.p))
+
 - [Evaluation of Farmer.Chat at Digital Green](https://arxiv.org/abs/2409.08916)
+
 - [Evaluation of mMitra at Armman](https://docs.google.com/presentation/d/1mAF1lI8tkTjLLW3SjwrV8mdz4VDkTdog/edit?slide=id.p1#slide=id.p1)
 
 **Level 3 Case Studies**:
+
 - [ChatSEL Documentation](https://agency-fund.github.io/chatsel-docs/docs/t1-intro)
+
 - [User Evaluation Workshop - ChatSEL](https://docs.google.com/document/d/18AXtIeDx6HsidhMKTJ2kIDb7hUwHEkEnwGPZuC9JJo0/edit?tab=t.0)
 
 ## Questions?
+
 **Authored by:**
+
 - **[The Agency Fund](https://www.agency.fund/)**  
-- **IDInsight**  
+
+- **[IDInsight](https://www.idinsight.org/)**  
+
 - **[Center for Global Development](https://www.cgdev.org/)**
 
 **November 2025**

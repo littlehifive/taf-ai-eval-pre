@@ -3211,7 +3211,7 @@ color: #ffffff;
 
 .title-slide::after,
 slides > slide.title-slide::after {
-content: 'This playbook is an updated version of the playbook created by the Agency Fund, with input from IDInsight and CGD.';
+content: 'This playbook is an updated version of the playbook created by The Agency Fund (https://eval.playbook.org.ai/), with additional input from IDInsight and CGD.';
 position: absolute;
 bottom: 40px;
 left: 60px;
@@ -3516,7 +3516,17 @@ opacity: 1 !important;
           </hgroup>
   </slide>
 
-<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Introduction</h2></hgroup><article  id="introduction" class="smaller smaller">
+<slide class=""><hgroup><h2>Authors</h2></hgroup><article  id="authors" class="smaller ">
+
+<ul>
+<li><a href='https://www.agency.fund/' title=''>The Agency Fund</a>: Zezhen Wu, Robert On, James Walsh, Edmund Korley, Temina Madon, Linus Wong</li>
+<li><a href='https://www.idinsight.org/' title=''>IDInsight</a>: Sid Ravinutala</li>
+<li><a href='https://www.cgdev.org/' title=''>Center for Global Development</a>: Han Sheng Chia, Markus Goldstein</li>
+</ul>
+
+<p>This playbook is an updated version of the <a href='https://eval.playbook.org.ai/' title=''>AI Evaluation in the Social Sector Playbook</a> created by The Agency Fund (see original authors and contributors <a href='https://eval.playbook.org.ai/authors' title=''>here</a>), with input from IDInsight and CGD.</p>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Introduction</h2></hgroup><article  id="introduction" class="smaller smaller">
 
 </article></slide><slide class=""><hgroup><h2>The Challenge</h2></hgroup><article  id="the-challenge" class="smaller ">
 
@@ -3725,10 +3735,14 @@ opacity: 1 !important;
 
 <ul>
 <li><p><strong>Extract</strong>: Collect data from various sources - chat logs, product telemetry, survey tools, third-party APIs, or spreadsheets</p></li>
-<li><p><strong>Transform</strong>: Clean, standardize, and reshape the raw data into a usable format. This could involve timestamp alignment, anonymization, session stitching, or deriving new metrics like time-on-task indicators</p></li>
+<li><p><strong>Transform</strong>: Clean, standardize, and reshape the raw data into a usable format. This could involve timestamp alignment, anonymization, session stitching, or deriving new metrics and indicators</p></li>
 <li><p><strong>Load</strong>: Store the transformed data in a centralized system (like a data warehouse or analytics dashboard) where teams can access it for analysis, visualization, or modeling</p></li>
-<li><p><strong>Why critical</strong>: AI products, especially those using generative models, produce high volumes of complex, often unstructured data: prompts, outputs, clicks, feedback, engagement patterns, and more. Without a clear ETL pipeline, turning raw data into actionable metrics at scale becomes unreliable and slow.</p></li>
-<li><p><strong>Example</strong>: A product designed to support adolescent mental health might collect model-level outputs (Level 1), engagement logs (Level 2), behavioral indicators (Level 3), and outcome data (Level 4) - all requiring integration through a robust pipeline.</p></li>
+</ul>
+
+<p><strong>Why critical</strong>: AI products, especially those using generative models, produce high volumes of complex, often unstructured data: prompts, outputs, clicks, feedback, engagement patterns, and more. Without a clear ETL pipeline, turning raw data into actionable metrics at scale becomes unreliable and slow.</p>
+
+<ul>
+<li><strong>Example</strong>: A product designed to support adolescent mental health might collect model-level outputs (Level 1), engagement logs (Level 2), behavioral indicators (Level 3), and outcome data (Level 4) - all requiring integration through a robust pipeline.</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Building Block 3: Targeted Hypotheses</h2></hgroup><article  id="building-block-3-targeted-hypotheses" class="smaller ">
@@ -4225,7 +4239,9 @@ opacity: 1 !important;
 
 <p><strong>Why important</strong>: Once product functions correctly (Level 1) and engages users (Level 2), ask:</p>
 
-<p><strong>Is it changing how users think, feel, or act?</strong></p>
+<ul>
+<li><strong>Is it changing how users think, feel, or act?</strong></li>
+</ul>
 
 <p>User psychological and behavioral changes are early indicators of long-term development goals. These evaluations are faster and cheaper than full impact evaluations, allowing rapid iteration.</p>
 
@@ -4287,15 +4303,7 @@ opacity: 1 !important;
 </article></slide><slide class=""><hgroup><h2>Measurement Tools: 4 Categories</h2></hgroup><article  id="measurement-tools-4-categories" class="smaller ">
 
 <ol>
-<li><p><strong>On-Platform Behavioral Measures</strong>:</p>
-
-<ul>
-<li>Frequency and depth of queries</li>
-<li>Changes in language complexity</li>
-<li>Follow-up question rate</li>
-<li>Session duration &amp; return rate</li>
-<li>Feature utilization and AI suggestions followed</li>
-</ul></li>
+<li><p><strong>On-Platform Behavioral Measures</strong>: e.g., Frequency and depth of queries, changes in language complexity, follow-up question rate, session duration &amp; return rate, feature utilization and AI suggestions followed, feature utilization and AI suggestions followed</p></li>
 <li><p><strong>Short Self-Report Surveys</strong>: Validated scales, brief and specific, integrated into flow</p></li>
 <li><p><strong>NLP and Text Analysis</strong>: Sentiment analysis, topic modeling, LIWC, LLM-based analysis</p></li>
 <li><p><strong>Off-Platform Measures</strong>: Longer surveys, observer reports, objective performance data</p></li>
@@ -4371,12 +4379,12 @@ opacity: 1 !important;
 <li><strong>Analyzes users’ language</strong> to detect cognitive, emotional, and behavioral change over time.</li>
 <li><strong>Sentiment analysis:</strong> Tracks shifts in tone (e.g., anxious → confident). Flags frustration or increasing comfort.</li>
 <li><strong>Topic modeling &amp; keyword analysis:</strong> Shows movement from basic → advanced topics; surfaces themes like “exam anxiety.”</li>
-<li><strong>LIWC / dictionary tools:</strong> Quantifies psychological markers (emotion words, cognitive-process words, social words).
+<li><strong><a href='https://www.liwc.app/' title=''>LIWC</a> / dictionary tools:</strong> Quantifies psychological markers (emotion words, cognitive-process words, social words).
 
 <ul>
 <li>Example: more “we/us” → greater connection; fewer negatives (“never, not”) → reduced negativity.</li>
 </ul></li>
-<li><strong>LLM-based scoring:</strong> GPT-style models rate constructs directly (e.g., confidence 1–5, belonging 1–5).
+<li><strong><a href='https://arxiv.org/abs/2309.10771' title=''>LLM-based scoring</a>:</strong> GPT-style models rate constructs directly (e.g., confidence 1–5, belonging 1–5).
 
 <ul>
 <li>Enables nuanced user profiles (e.g., sentiment ↑, confidence ↑, independence 3/5).</li>
@@ -4636,13 +4644,32 @@ opacity: 1 !important;
 
 </article></slide><slide class=""><hgroup><h2>Additional Resources</h2></hgroup><article  id="additional-resources" class="smaller ">
 
-<p><strong>Level 1 Case Studies</strong>: - <a href='https://cdh.stanford.edu/generative-ai-health-low-middle-income-countries' title=''>Generative AI for Health in Low &amp; Middle Income Countries</a> - <a href='https://cdh.stanford.edu/generative-ai-health-low-middle-income-countries' title=''>Evaluation framework of PROMPTS at Jacaranda Health</a> - <a href='https://precisiondev.org/evaluating-ai-for-learning-a-framework/' title=''>Evaluation framework at Precision Development</a> (<a href='https://docs.google.com/presentation/d/1agCgpDWNVWtbOFhdlDYUpLM3OxyHP5CxyzON_tn61x0/edit?slide=id.p#slide=id.p' title=''>slides</a>) - <a href='https://arxiv.org/abs/2409.08916' title=''>Evaluation of Farmer.Chat at Digital Green</a> - <a href='https://docs.google.com/presentation/d/1mAF1lI8tkTjLLW3SjwrV8mdz4VDkTdog/edit?slide=id.p1#slide=id.p1' title=''>Evaluation of mMitra at Armman</a></p>
+<p><strong>Level 1 Case Studies</strong>:</p>
 
-<p><strong>Level 3 Case Studies</strong>: - <a href='https://agency-fund.github.io/chatsel-docs/docs/t1-intro' title=''>ChatSEL Documentation</a> - <a href='https://docs.google.com/document/d/18AXtIeDx6HsidhMKTJ2kIDb7hUwHEkEnwGPZuC9JJo0/edit?tab=t.0' title=''>User Evaluation Workshop - ChatSEL</a></p>
+<ul>
+<li><p><a href='https://cdh.stanford.edu/generative-ai-health-low-middle-income-countries' title=''>Generative AI for Health in Low &amp; Middle Income Countries</a></p></li>
+<li><p><a href='https://cdh.stanford.edu/generative-ai-health-low-middle-income-countries' title=''>Evaluation framework of PROMPTS at Jacaranda Health</a></p></li>
+<li><p><a href='https://precisiondev.org/evaluating-ai-for-learning-a-framework/' title=''>Evaluation framework at Precision Development</a> (<a href='https://docs.google.com/presentation/d/1agCgpDWNVWtbOFhdlDYUpLM3OxyHP5CxyzON_tn61x0/edit?slide=id.p#slide=id.p' title=''>slides</a>)</p></li>
+<li><p><a href='https://arxiv.org/abs/2409.08916' title=''>Evaluation of Farmer.Chat at Digital Green</a></p></li>
+<li><p><a href='https://docs.google.com/presentation/d/1mAF1lI8tkTjLLW3SjwrV8mdz4VDkTdog/edit?slide=id.p1#slide=id.p1' title=''>Evaluation of mMitra at Armman</a></p></li>
+</ul>
+
+<p><strong>Level 3 Case Studies</strong>:</p>
+
+<ul>
+<li><p><a href='https://agency-fund.github.io/chatsel-docs/docs/t1-intro' title=''>ChatSEL Documentation</a></p></li>
+<li><p><a href='https://docs.google.com/document/d/18AXtIeDx6HsidhMKTJ2kIDb7hUwHEkEnwGPZuC9JJo0/edit?tab=t.0' title=''>User Evaluation Workshop - ChatSEL</a></p></li>
+</ul>
 
 </article></slide><slide class=""><hgroup><h2>Questions?</h2></hgroup><article  id="questions" class="smaller ">
 
-<p><strong>Authored by:</strong> - <strong><a href='https://www.agency.fund/' title=''>The Agency Fund</a></strong><br/>- <strong>IDInsight</strong><br/>- <strong><a href='https://www.cgdev.org/' title=''>Center for Global Development</a></strong></p>
+<p><strong>Authored by:</strong></p>
+
+<ul>
+<li><p><strong><a href='https://www.agency.fund/' title=''>The Agency Fund</a></strong></p></li>
+<li><p><strong><a href='https://www.idinsight.org/' title=''>IDInsight</a></strong></p></li>
+<li><p><strong><a href='https://www.cgdev.org/' title=''>Center for Global Development</a></strong></p></li>
+</ul>
 
 <p><strong>November 2025</strong></p>
 
